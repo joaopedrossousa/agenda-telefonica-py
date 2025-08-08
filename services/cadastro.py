@@ -14,6 +14,16 @@ class CadastrarContato:
 
         while True:
 
+            cadastro_contato = {}
+
+            print()
+
+            cadastro_contato["Nome"] = input("Informe o nome: ")
+
+            cadastro_contato["Numero"] = input("Informe o numero: ")
+
+            self.contatos_cadastrados.append(cadastro_contato)
+
             print()
 
             flag_continuar = int(
