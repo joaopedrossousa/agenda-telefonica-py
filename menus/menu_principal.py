@@ -1,7 +1,10 @@
+from services.cadastro import CadastrarContato
+
+
 class MenuPrincipal:
 
     def __init__(self):
-        pass
+        self.cadastro_usuario = CadastrarContato()
 
     def indices_menu(self):
         print("-" * 40)
@@ -14,13 +17,24 @@ class MenuPrincipal:
 
     def opcao_menu(self):
 
-        MenuPrincipal.indices_menu(self)
-
         while True:
 
-            escolha_opcao = int(input("ESCOLHA UMA OPÇÃO: "))
+            MenuPrincipal.indices_menu(self)
+
+            try:
+
+                escolha_opcao = int(input("ESCOLHA UMA OPÇÃO: "))
+                print()
+
+            except (TypeError, ValueError):
+                print("OPÇÃO INVALIDA...")
+
+            if escolha_opcao == 1:
+                self.cadastro_usuario.cadastrar_contato()
 
             if escolha_opcao == 3:
-                print()
                 print("PROGRAMA ENCERRADO...")
                 break
+
+            if escolha_opcao not in range(1, 3):
+                print("OPÇÃO INVALIDA! ")
